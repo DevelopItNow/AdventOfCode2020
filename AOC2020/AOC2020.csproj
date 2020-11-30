@@ -3,6 +3,8 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>AOC2020</AssemblyName>
+        <RootNamespace>AOC2020</RootNamespace>
     </PropertyGroup>
 
 </Project>

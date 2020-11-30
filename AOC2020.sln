@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day1", "Day1\Day1.csproj", "{D3814EE4-FA44-4E6E-9EAE-698EE9FE8B68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOC2020", "AOC2020\AOC2020.csproj", "{D3814EE4-FA44-4E6E-9EAE-698EE9FE8B68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
