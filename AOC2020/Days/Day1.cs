@@ -11,12 +11,16 @@ namespace AOC2020.Days
 			{
 				foreach (string j in programList)
 				{
-					int num1 = Int32.Parse(i);
-					int num2 = Int32.Parse(j);
-					if ((num1 + num2) == 2020)
+					foreach (string k in programList)
 					{
-						Console.WriteLine(num1 * num2);
-						return;
+						int num1 = Int32.Parse(i);
+						int num2 = Int32.Parse(j);
+						int num3 = Int32.Parse(k);
+						if ((num1 + num2 + num3) == 2020)
+						{
+							Console.WriteLine(num1 * num2 * num3);
+							return;
+						}
 					}
 				}
 			}
