@@ -6,7 +6,6 @@ namespace AOC2020.Days
 	{
 		public Day1()
 		{
-			
 		}
 	}
 }

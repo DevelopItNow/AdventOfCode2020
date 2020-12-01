@@ -1,12 +1,13 @@
 ﻿using System;
+using System.IO;
 
 namespace AOC2020
 {
 	public class Utils
 	{
-		public static void DoSomething(string str)
+		public static string[] LoadFile(string str)
 		{
-			Console.WriteLine(str);
+			return File.ReadAllLines(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\Res\\" + str));
 		}
 	}
 }

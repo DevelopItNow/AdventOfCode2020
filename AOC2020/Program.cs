@@ -8,7 +8,6 @@ namespace AOC2020
 		static void Main(string[] args)
 		{
 			Day1 day = new Day1();
-			// Console.WriteLine("Hello World!");
 		}
 	}
 }
