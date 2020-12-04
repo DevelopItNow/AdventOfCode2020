@@ -7,7 +7,9 @@ namespace AOC2020.Days
 {
 	public class Day4Part2
 	{
-		private const string REGEX_PATTERN = @"(\w+):(\S+)";
+		private static readonly string REGEX_PATTERN = @"(\w+):(\S+)";
+
+		private static readonly string[] EYE_COLORS = { "amb", "blu", "brn", "gry", "grn", "hzl", "oth"};
 
 		public Day4Part2()
 		{
@@ -64,7 +66,7 @@ namespace AOC2020.Days
 					const string hexRegex = @"^#([A-Fa-f0-9]{6})$";
 					return Regex.Match(value, hexRegex).Success;
 				case "ecl":
-					return (value == "amb" || value == "blu" || value == "brn" || value == "gry" || value == "grn" || value == "hzl" || value == "oth");
+					return EYE_COLORS.Contains(value);
 				case "pid":
 					const string pidRegex = @"^(\d{9})$";
 					return Regex.Match(value, pidRegex).Success;
