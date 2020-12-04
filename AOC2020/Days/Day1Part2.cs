@@ -6,7 +6,7 @@ namespace AOC2020.Days
 	{
 		public Day1Part2()
 		{
-			string[] programList = Utils.LoadFile("Day1-1.txt");
+			string[] programList = Utils.LoadFileToStringArray("Day1-1.txt");
 			foreach (string i in programList)
 			{
 				foreach (string j in programList)

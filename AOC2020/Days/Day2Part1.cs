@@ -8,7 +8,7 @@ namespace AOC2020.Days
 	{
 		public Day2Part1()
 		{
-			string[] programList = Utils.LoadFile("Day2-1.txt");
+			string[] programList = Utils.LoadFileToStringArray("Day2-1.txt");
 			string regexPattern = @"(\d*-\d*) (\w): (.*)";
 			int validPasswords = 0;
 			foreach (string i in programList)

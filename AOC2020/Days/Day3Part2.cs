@@ -11,7 +11,7 @@ namespace AOC2020.Days
 		private List<char[]> _items = new List<char[]>();
 		public Day3Part2()
 		{
-			string[] programList = Utils.LoadFile("Day3-1.txt");
+			string[] programList = Utils.LoadFileToStringArray("Day3-1.txt");
 			
 			_depth = programList.Length;
 			foreach (var line in programList)
@@ -46,10 +46,8 @@ namespace AOC2020.Days
 			{
 				row += dAmount;
 				right += rAmount;
-				if (right > _length - 1)
-					right -= _length;
 
-				if (_items[row][right] == '#')
+				if (_items[row][right % _length] == '#')
 					foundTrees++;
 			}
 
