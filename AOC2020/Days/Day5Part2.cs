@@ -1,15 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace AOC2020.Days
 {
-	public class Day5Part1
+	public class Day5Part2
 	{
 		private static readonly int ROW_NUMBERS = 127;
 		private static readonly int SEAT_NUMBERS = 7;
 
-		public Day5Part1()
+		public Day5Part2()
 		{
 			string[] programList = Utils.LoadFileToStringArray("Day5-1.txt");
+
+			List<int> seatIdList = new List<int>();
 
 			int highestValue = 0;
 			foreach (string boardingCard in programList)
@@ -39,9 +44,15 @@ namespace AOC2020.Days
 					}
 				}
 				int sum = minRow * 8 + minSeat;
+				seatIdList.Add(sum);
 				highestValue = (sum > highestValue) ? sum : highestValue;
 			}
-			Console.WriteLine($"Seat ID is: {highestValue}");
+
+			foreach (int seatId in seatIdList.Where(seatId => !seatIdList.Contains(seatId + 1) && seatIdList.Contains(seatId + 2)))
+			{
+				Console.WriteLine("SEAT: " + (seatId + 1));
+			}
+
 		}
 	}
 }
