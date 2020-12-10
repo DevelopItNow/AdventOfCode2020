@@ -27,7 +27,9 @@ namespace AOC2020
 			// Day8Part1 day8Part1 = new Day8Part1();
 			// Day8Part2 day8Part2 = new Day8Part2();
 			// Day9Part1 day9Part1 = new Day9Part1();
-			Day9Part2 day9Part2 = new Day9Part2();
+			// Day9Part2 day9Part2 = new Day9Part2();
+			// Day10Part1 day10Part1 = new Day10Part1();
+			Day10Part2 day10Part2 = new Day10Part2();
 			
 			watch.Stop();
 			long elapsedMs = watch.ElapsedMilliseconds;
