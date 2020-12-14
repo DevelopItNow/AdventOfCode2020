@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace AOC2020.Days
 {
 	public class Day14Part2
 	{
-		private Dictionary<string, int> _memory = new Dictionary<string, int>();
+		private Dictionary<string, long> _memory = new Dictionary<string, long>();
 		
 		public Day14Part2()
 		{
-			string[] programList = Utils.LoadFileToStringArray("Day14-1-Test.txt");
+			string[] programList = Utils.LoadFileToStringArray("Day14-1.txt");
 
 			string mask = "";
 			foreach (string memInfo in programList)
@@ -28,8 +29,9 @@ namespace AOC2020.Days
 			}
 
 			// long total = _memory.Sum(memInfo => Convert.ToInt64(memInfo.Value, 2));
+			long total = _memory.Sum(mem => mem.Value);
 
-			// Console.WriteLine($"Total of the binaries is {total}");
+			Console.WriteLine($"Total of the binaries is {total}");
 
 		}
 
@@ -38,12 +40,50 @@ namespace AOC2020.Days
 			int memoryLocationInt = Convert.ToInt32(memoryInfo.Replace("mem[", "").Split("]")[0]);
 			string memoryLocation = Convert.ToString(memoryLocationInt, 2);
 			int value = Convert.ToInt32(memoryInfo.Split(" = ")[1]);
+			char[] newBinaryMemory = "000000000000000000000000000000000000".ToCharArray();
 			char[] maskChars = mask.ToCharArray();
-
-			for (int i = 0; i < maskChars.Length; i++)
+			
+		
+			var sb = new StringBuilder(memoryLocation.PadLeft(36, '0'));
+			
+			for (int i = 0; i < mask.Length; i++)
 			{
-				
+				if (mask[i] == '0')
+					continue;
+
+				sb[i] = mask[i];
 			}
+
+			long[] addresses = GetAllAddress(sb.ToString());
+
+			foreach (var item in addresses)
+			{
+				_memory[item.ToString()] = value;
+			}
+		}
+		private long[] GetAllAddress(string addMask)
+		{
+			List<long> result = new List<long>();
+			Queue<string> strAddr = new Queue<string>();
+			strAddr.Enqueue(addMask);
+
+			while(strAddr.Count > 0)
+			{
+				var t = strAddr.Dequeue();
+
+				int pos = t.IndexOf('X');
+				if (pos == -1)
+				{
+					result.Add(Convert.ToInt64(t, 2));
+					continue;
+				}
+				StringBuilder sb = new StringBuilder(t);
+				sb.Replace('X', '0', pos, 1);
+				strAddr.Enqueue(sb.ToString());
+				sb.Replace('0', '1', pos, 1);
+				strAddr.Enqueue(sb.ToString());
+			}
+			return result.ToArray();
 		}
 	}
 }
