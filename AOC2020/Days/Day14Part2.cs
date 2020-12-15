@@ -28,7 +28,6 @@ namespace AOC2020.Days
 				}
 			}
 
-			// long total = _memory.Sum(memInfo => Convert.ToInt64(memInfo.Value, 2));
 			long total = _memory.Sum(mem => mem.Value);
 
 			Console.WriteLine($"Total of the binaries is {total}");
@@ -40,11 +39,8 @@ namespace AOC2020.Days
 			int memoryLocationInt = Convert.ToInt32(memoryInfo.Replace("mem[", "").Split("]")[0]);
 			string memoryLocation = Convert.ToString(memoryLocationInt, 2);
 			int value = Convert.ToInt32(memoryInfo.Split(" = ")[1]);
-			char[] newBinaryMemory = "000000000000000000000000000000000000".ToCharArray();
-			char[] maskChars = mask.ToCharArray();
-			
 		
-			var sb = new StringBuilder(memoryLocation.PadLeft(36, '0'));
+			StringBuilder sb = new StringBuilder(memoryLocation.PadLeft(36, '0'));
 			
 			for (int i = 0; i < mask.Length; i++)
 			{
@@ -56,7 +52,7 @@ namespace AOC2020.Days
 
 			long[] addresses = GetAllAddress(sb.ToString());
 
-			foreach (var item in addresses)
+			foreach (long item in addresses)
 			{
 				_memory[item.ToString()] = value;
 			}
@@ -69,7 +65,7 @@ namespace AOC2020.Days
 
 			while(strAddr.Count > 0)
 			{
-				var t = strAddr.Dequeue();
+				string t = strAddr.Dequeue();
 
 				int pos = t.IndexOf('X');
 				if (pos == -1)
