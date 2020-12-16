@@ -49,8 +49,8 @@ namespace AOC2020.Days
 						i++;
 						continue;
 					}
-					var last = a[^1];
-					var second = a[^2];
+					KeyValuePair<int, int> last = a[^1];
+					KeyValuePair<int, int> second = a[^2];
 					int diff = last.Key - second.Key;
 					lastNumber = diff;
 					spokenNumbers.Add(diff);
@@ -60,7 +60,6 @@ namespace AOC2020.Days
 				i++;
 			}
 			Console.WriteLine($"The last number was {lastNumber}");
-			int aaa = 0;
 		}
 	}
 }
